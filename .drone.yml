@@ -14,7 +14,7 @@ steps:
       exclude:
         - pull_request
 - name: Main
-  image: golang:stretch
+  image: golang:buster
   environment:
     GITHUB_TOKEN:
       from_secret: GITHUB_TOKEN
@@ -22,7 +22,7 @@ steps:
   - wget -q https://raw.githubusercontent.com/yshalsager/dorar-history-encyclopedia/master/generate.sh
   - chmod +x generate.sh && ./generate.sh
 - name: wait_for_debug
-  image: golang:stretch
+  image: golang:buster
 
   environment:
     # Amount of time to wait for debugging

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3.7
+
 from bs4 import BeautifulSoup
 from requests import get
 
@@ -30,9 +32,8 @@ def scraper(last: int):
 def get_last_page():
     return BeautifulSoup(
         get(f'https://dorar.net/history/').content,
-        'html.parser').find(
-        'ul', {'class': 'pagination pagination-lg'}
-    ).findAll('a')[-1]['href'].split('=')[1]
+        'html.parser').find('ul', {'class': 'pagination pagination-lg'}
+                            ).findAll('a')[-1]['href'].split('=')[1]
 
 
 def main():
